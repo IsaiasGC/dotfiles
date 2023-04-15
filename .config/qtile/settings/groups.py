@@ -8,16 +8,13 @@ from .keys import mod, keys
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 # Icons: 
 # nf-fa-firefox, 
-# nf-fae-python, 
+# nf-dev-codeigniter, 
 # nf-dev-terminal, 
-# nf-fa-code, 
-# nf-oct-git_merge, 
+# nf-oct-file_directory, 
 # nf-linux-docker,
-# nf-mdi-image, 
-# nf-mdi-layers
 
 groups = [Group(i) for i in [
-    "   ", "   ", "   ", "   ", "  ", "   ", "   ", "   ", "   ",
+    "   ", "  ", "  ", "  ", "   ",
 ]]
 
 for i, group in enumerate(groups):
