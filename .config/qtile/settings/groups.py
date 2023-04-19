@@ -1,6 +1,6 @@
 # Qtile workspaces
 
-from libqtile.config import Key, Group
+from libqtile.config import Key, Group, Match
 from libqtile.command import lazy
 from .keys import mod, keys
 
@@ -8,14 +8,22 @@ from .keys import mod, keys
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 # Icons: 
 # nf-fa-firefox, 
+# nf-md-discord, 
 # nf-dev-codeigniter, 
 # nf-dev-terminal, 
-# nf-oct-file_directory, 
-# nf-linux-docker,
+# nf-custom-folder, 
+# nf-oct-tools, 
 
-groups = [Group(i) for i in [
-    "   ", "  ", "  ", "  ", "   ",
-]]
+spaces: dict[str, list[Match]] = {
+    "   ": [Match(wm_class="firefox")],
+    " 󰙯 ": [Match(wm_class="discord")],
+    "  ": [Match(wm_class="code")],
+    "  ": [Match(wm_class="alacritty")],
+    "  ": [Match(wm_class="thunar")],
+    " 󱁤 ": [],
+}
+
+groups = [Group(label, matches=match) for label, match in spaces.items()]
 
 for i, group in enumerate(groups):
     actual_key = str(i + 1)

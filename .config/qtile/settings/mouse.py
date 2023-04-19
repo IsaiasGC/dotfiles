@@ -1,20 +1,20 @@
 from libqtile.config import Drag, Click
 from libqtile.command import lazy
-from .keys import mod
+from .keys import alt
 
 
 mouse = [
     Drag(
-        [mod],
+        [alt],
         "Button1",
         lazy.window.set_position_floating(),
         start=lazy.window.get_position()
     ),
     Drag(
-        [mod],
+        [alt],
         "Button3",
         lazy.window.set_size_floating(),
         start=lazy.window.get_size()
     ),
-    Click([mod], "Button2", lazy.window.bring_to_front())
+    Click([alt], "Button2", lazy.window.bring_to_front())
 ]

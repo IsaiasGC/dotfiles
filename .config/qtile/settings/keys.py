@@ -6,16 +6,18 @@ from libqtile.utils import guess_terminal
 
 
 mod = "mod4"
+alt = "mod1"
+
 terminal = guess_terminal("alacritty")
 
 keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ Window Configs ------------
 
     # Switch between windows in current stack pane
-    ([mod], "j", lazy.layout.down()),
-    ([mod], "k", lazy.layout.up()),
-    ([mod], "h", lazy.layout.left()),
-    ([mod], "l", lazy.layout.right()),
+    ([alt], "Down", lazy.layout.down()),
+    ([alt], "Up", lazy.layout.up()),
+    ([alt], "Left", lazy.layout.left()),
+    ([alt], "Right", lazy.layout.right()),
 
     # Change window sizes (MonadTall)
     ([mod, "shift"], "l", lazy.layout.grow()),
@@ -27,9 +29,13 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Toggle floating
     ([mod, "shift"], "f", lazy.window.toggle_floating()),
 
-    # Move windows up or down in current stack
-    ([mod, "shift"], "j", lazy.layout.shuffle_down()),
-    ([mod, "shift"], "k", lazy.layout.shuffle_up()),
+    # Switch between windows
+    ([alt], "Tab", lazy.layout.next()),
+    ([alt, "shift"], "Tab", lazy.layout.previous()),
+
+    # Switch between groups
+    ([mod], "Left", lazy.group.prevgroup()),
+    ([mod], "Right", lazy.group.nextgroup()),
 
     # Toggle between different layouts as defined below
     ([mod], "Tab", lazy.next_layout()),
@@ -57,14 +63,14 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
     # Browser
-    ([mod], "b", lazy.spawn("firefox")),
+    ([mod], "b", lazy.spawn("firefox-developer-edition")),
 
     # File Explorer
-    ([mod], "e", lazy.spawn("pcmanfm")),
+    ([mod], "e", lazy.spawn("thunar")),
 
     # Terminal
-    ([mod], "t", lazy.spawn(terminal), desc="Launch terminal"),
-    ([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    ([mod], "t", lazy.spawn(terminal)),
+    ([mod], "Return", lazy.spawn(terminal)),
 
     # Redshift
     ([mod], "r", lazy.spawn("redshift -O 2400")),
@@ -76,16 +82,11 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
 
     # ------------ Hardware Configs ------------
 
-    # Volume
-    ([], "XF86AudioLowerVolume", lazy.spawn(
-        "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-    )),
-    ([], "XF86AudioRaiseVolume", lazy.spawn(
-        "pactl set-sink-volume @DEFAULT_SINK@ +5%"
-    )),
-    ([], "XF86AudioMute", lazy.spawn(
-        "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-    )),
+   
+    # Volumen
+    ([], "XF86AudioLowerVolume", lazy.spawn("pamixer --decrease 5")),
+    ([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --increase 5")),
+    ([], "XF86AudioMute", lazy.spawn("pamixer --toggle-mute")),
 
     # Brightness
     ([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
