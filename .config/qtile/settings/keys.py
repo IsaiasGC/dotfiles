@@ -19,6 +19,15 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([alt], "Left", lazy.layout.left()),
     ([alt], "Right", lazy.layout.right()),
 
+    # Move current window
+    ([alt, "shift"], "Up", lazy.layout.shuffle_up()),
+    ([alt, "shift"], "Down", lazy.layout.shuffle_down()),
+    ([alt, "shift"], "Left", lazy.layout.swap_left()),
+    ([alt, "shift"], "Right", lazy.layout.swap_right()),
+
+    # Swap the position of the master/child panes
+    ([alt, "shift"], "f", lazy.layout.flip()),
+
     # Change window sizes (MonadTall)
     ([mod, "shift"], "l", lazy.layout.grow()),
     ([mod, "shift"], "h", lazy.layout.shrink()),
@@ -27,15 +36,15 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "f", lazy.window.toggle_fullscreen()),
 
     # Toggle floating
-    ([mod, "shift"], "f", lazy.window.toggle_floating()),
+    # ([mod, "shift"], "f", lazy.window.toggle_floating()),
 
     # Switch between windows
     ([alt], "Tab", lazy.layout.next()),
     ([alt, "shift"], "Tab", lazy.layout.previous()),
 
     # Switch between groups
-    ([mod], "Left", lazy.group.prevgroup()),
-    ([mod], "Right", lazy.group.nextgroup()),
+    ([mod], "Left", lazy.screen.prev_group(skip_empty=True)),
+    ([mod], 'Right', lazy.screen.next_group(skip_empty=True)),
 
     # Toggle between different layouts as defined below
     ([mod], "Tab", lazy.next_layout()),
@@ -45,13 +54,13 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "w", lazy.window.kill()),
 
     # Switch focus of monitors
-    ([mod], "period", lazy.next_screen()),
-    ([mod], "comma", lazy.prev_screen()),
+    ([mod, "control"], "Left", lazy.next_screen()),
+    ([mod, "control"], "Right", lazy.prev_screen()),
 
     # Restart Qtile
     ([mod, "control"], "r", lazy.restart()),
 
-    ([mod, "control"], "q", lazy.shutdown()),
+    ([mod, "control"], "l", lazy.shutdown()),
     ([mod], "r", lazy.spawncmd()),
 
     # ------------ App Configs ------------

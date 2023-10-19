@@ -4,8 +4,14 @@ add_newline = false
 [line_break]
 disabled = true
 
-[directory]
-style = "bold blue"
+[username]
+format = '[$user]($style)'
+disabled = false
+show_always = false
+
+[hostname]
+ssh_only = true
+format = '[$ssh_symbol$hostname]($style) '
 
 [cmd_duration]
 format = "[$duration]($style) "
@@ -17,6 +23,15 @@ not_found_symbol = ""
 not_executable_symbol = ""
 sigint_symbol = "ﭦ"
 map_symbol = true
+
+[directory]
+style = "bold blue"
+
+[sudo]
+format = '[$symbol]($style)'
+style = 'bold red'
+symbol = ' '
+disabled = false
 
 [git_branch]
 format = "[$symbol$branch]($style) "

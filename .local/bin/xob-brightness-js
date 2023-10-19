@@ -2,7 +2,7 @@
 
 fs = require('fs')
 
-device = 'amdgpu_bl0'
+device = 'intel_backlight'
 brightnessFile = `/sys/class/backlight/${device}/brightness`;
 maxBrightnessFile = `/sys/class/backlight/${device}/max_brightness`;
 

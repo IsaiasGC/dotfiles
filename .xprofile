@@ -25,7 +25,5 @@ xsettingsd &
 # Wallpaper
 nitrogen --restore &
 # Overlay Bar
-xob-pulse-py | xob -s pulse &
-xob-brightness-js | xob -s brightness &
-
-
+xob-pulse-py || xob -s pulse &
+xob-brightness-js || xob -s brightness &

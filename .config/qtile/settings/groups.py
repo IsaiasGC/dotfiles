@@ -13,17 +13,16 @@ from .keys import mod, keys
 # nf-dev-terminal, 
 # nf-custom-folder, 
 # nf-oct-tools, 
-
 spaces: dict[str, list[Match]] = {
-    "   ": [Match(wm_class="firefox")],
+    "   ": [Match(wm_class="firefox-developer-edition")],
+    "  ": [Match(wm_class="code"),Match(wm_class="remina")],
+    "  ": [Match(wm_class="Alacritty")],
     " 󰙯 ": [Match(wm_class="discord")],
-    "  ": [Match(wm_class="code")],
-    "  ": [Match(wm_class="alacritty")],
     "  ": [Match(wm_class="thunar")],
-    " 󱁤 ": [],
+    # " 󱁤 ": [],
 }
 
-groups = [Group(label, matches=match) for label, match in spaces.items()]
+groups = [Group(label, matches=match, layout="MonadTall") for label, match in spaces.items()]
 
 for i, group in enumerate(groups):
     actual_key = str(i + 1)

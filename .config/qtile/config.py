@@ -19,11 +19,14 @@ import subprocess
 def autostart():
     subprocess.call([path.join(qtile_path, 'autostart.sh')])
 
+@hook.subscribe.restart
+def restart():
+    subprocess.call([path.join(qtile_path, 'restart.sh')])
 
 main = None
 dgroups_key_binder = None
 dgroups_app_rules = []
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = True
 auto_fullscreen = True

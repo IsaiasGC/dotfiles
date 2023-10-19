@@ -3,6 +3,8 @@ from .theme import colors
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 
+FAVICON = ''
+
 def base(fg='text', bg='dark'): 
     return {
         'foreground': colors[fg],
@@ -14,12 +16,12 @@ def separator():
     return widget.Sep(**base(), linewidth=0, padding=5)
 
 
-def icon(fg='text', bg='dark', fontsize=16, text="?"):
+def icon(fg='text', bg='dark', fontsize=14, text="?"):
     return widget.TextBox(
         **base(fg, bg),
         fontsize=fontsize,
         text=text,
-        padding=3
+        padding=2
     )
 
 
@@ -35,10 +37,16 @@ def powerline(fg="light", bg="dark"):
 def workspaces(): 
     return [
         separator(),
+        icon(
+            fg='focus',
+            fontsize=20,
+            text=f"{FAVICON} ",
+        ),
+        separator(),
         widget.GroupBox(
             **base(fg='light'),
             font='UbuntuMono Nerd Font',
-            fontsize=19,
+            fontsize=20,
             margin_y=3,
             margin_x=0,
             padding_y=8,
@@ -56,8 +64,7 @@ def workspaces():
             other_screen_border=colors['dark'],
             disable_drag=True
         ),
-        separator(),
-        widget.WindowName(**base(fg='focus'), fontsize=14, padding=5),
+        widget.WindowName(**base(fg='focus'), fontsize=12, padding=2),
         separator(),
     ]
 
@@ -89,19 +96,21 @@ primary_widgets = [
 
     powerline('color2', 'color3'),
 
-    widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
+    widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.6),
 
-    widget.CurrentLayout(**base(bg='color2'), padding=5),
+    widget.CurrentLayout(**base(bg='color2'), padding=2),
 
     powerline('color1', 'color2'),
 
-    icon(bg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
+    icon(bg="color1", fontsize=16, text=' '), # Icon: nf-mdi-calendar_clock
 
     widget.Clock(**base(bg='color1'), format='%d/%m/%Y - %H:%M '),
 
-    powerline('dark', 'color1'),
+    powerline('light', 'color1'),
 
-    widget.Systray(background=colors['dark'], padding=5),
+    widget.Systray(background=colors['light'], padding=2),
+
+    powerline('dark', 'light'),
 ]
 
 secondary_widgets = [
@@ -111,15 +120,9 @@ secondary_widgets = [
 
     powerline('color1', 'dark'),
 
-    widget.CurrentLayoutIcon(**base(bg='color1'), scale=0.65),
+    widget.Clock(**base(bg='color1'), format='%d/%m/%Y - %H:%M '),
 
-    widget.CurrentLayout(**base(bg='color1'), padding=5),
-
-    powerline('color2', 'color1'),
-
-    widget.Clock(**base(bg='color2'), format='%d/%m/%Y - %H:%M '),
-
-    powerline('dark', 'color2'),
+    powerline('dark', 'color1'),
 ]
 
 widget_defaults = {
