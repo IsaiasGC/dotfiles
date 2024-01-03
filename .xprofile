@@ -1,7 +1,9 @@
 # Env vars
 export PATH=$HOME/.local/bin:$PATH
 export _JAVA_AWT_WM_NONREPARENTING=1
-export QT_STYLE_OVERRIDE=kvantum 
+export QT_STYLE_OVERRIDE=kvantum
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/jvm/java-11-openjdk/lib/server/
 
 # Screens
 hdmi=`xrandr | grep ' connected' | grep 'HDMI' | awk '{print $1}'`
@@ -25,5 +27,5 @@ xsettingsd &
 # Wallpaper
 nitrogen --restore &
 # Overlay Bar
-xob-pulse-py || xob -s pulse &
-xob-brightness-js || xob -s brightness &
+xob-pulse-py | xob -s pulse &
+xob-brightness-py | xob -s brightness &
