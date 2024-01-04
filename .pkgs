@@ -6,11 +6,13 @@ base-devel
 bat
 bind
 blackarch-keyring
+blueman
+bluez
+bluez-utils
 brightnessctl
 btop
 cbatticon
 cronie
-discord
 dnsenum
 docker
 docker-compose
@@ -54,7 +56,9 @@ pacman-contrib
 pamixer
 pavucontrol
 picom
+playerctl
 pulseaudio
+pulseaudio-bluetooth
 python-pip
 qbittorrent
 qtile
