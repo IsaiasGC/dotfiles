@@ -59,7 +59,7 @@ URxvt.resize-font.bigger:  C-k
 !! Matcher
 URxvt.url-launcher:	urxvt -e lynx -cfg=~/.lynx.cfg -lss=~/.lynx.lss
 URxvt.matcher.button: 1
-!!clipboard
+!! clipboard
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
 URxvt*depth: 32

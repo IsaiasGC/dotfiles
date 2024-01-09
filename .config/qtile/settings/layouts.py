@@ -28,12 +28,26 @@ layouts = [
 floating_layout = layout.Floating(
     float_rules=[
         *layout.Floating.default_float_rules,
-        Match(wm_class='confirmreset'),
-        Match(wm_class='makebranch'),
-        Match(wm_class='maketag'),
-        Match(wm_class='ssh-askpass'),
-        Match(title='branchdialog'),
-        Match(title='pinentry'),
+        *[Match(**rules) for rules in [
+            {'wm_class': 'confirmreset'},
+            {'wm_class': 'makebranch'},
+            {'wm_class': 'maketag'},
+            {'wm_class': 'ssh-askpass'},
+            {'title': 'branchdialog'},
+            {'title': 'pinentry'},
+            {'wm_class': 'Arcolinux-welcome-app.py'},
+            {'wm_class': 'Arcolinux-tweak-tool.py'},
+            {'wm_class': 'Arcolinux-calamares-tool.py'},
+            {'wm_class': 'makebranch'},
+            {'wm_class': 'maketag'},
+            {'wm_class': 'Arandr'},
+            {'wm_class': 'feh'},
+            {'wm_class': 'Galculator'},
+            {'wm_class': 'arcolinux-logout'},
+            {'wm_class': 'xfce4-terminal'},
+            {'title': 'branchdialog'},
+            {'title': 'Open File'},
+        ]]
     ],
     border_focus=colors["color4"][0]
 )

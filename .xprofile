@@ -18,6 +18,8 @@ fi
 picom &
 # Network
 nm-applet &
+# Bluetooth
+blueman-applet &
 # Keyboard Layout
 setxkbmap latam &
 # Automount Devices

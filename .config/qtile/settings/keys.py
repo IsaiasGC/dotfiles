@@ -61,7 +61,10 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "control"], "r", lazy.restart()),
 
     ([mod, "control"], "l", lazy.shutdown()),
-    # ([mod], "r", lazy.spawncmd()),
+
+    ([mod], "r", lazy.spawncmd()),
+
+    ([mod], "l", lazy.spawn("dm-tool lock")),
 
     # ------------ App Configs ------------
 
