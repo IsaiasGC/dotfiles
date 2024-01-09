@@ -15,17 +15,19 @@ else
 fi
 
 # Composer
-picom &
+picom -b --config ~/picom.conf &
 # Network
 nm-applet &
 # Bluetooth
 blueman-applet &
 # Keyboard Layout
 setxkbmap latam &
+# Battery
+cbatticon &
+# Volume
+volumeicon &
 # Automount Devices
 udiskie -t &
-# Java Fonts
-xsettingsd &
 # Wallpaper
 nitrogen --restore &
 # Overlay Bar

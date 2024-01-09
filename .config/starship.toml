@@ -1,11 +1,20 @@
 scan_timeout = 60
 add_newline = false
 
+format = '$sudo$all'
+
 [line_break]
 disabled = true
 
+[sudo]
+format = '[$symbol]($style) '
+style = 'red'
+symbol = ' '
+disabled = false
+
 [username]
-format = '[$user]($style)'
+format = '[$user]($style) '
+style_user = 'green'
 disabled = false
 show_always = false
 
@@ -15,6 +24,7 @@ format = '[$ssh_symbol$hostname]($style) '
 
 [cmd_duration]
 format = "[$duration]($style) "
+style = 'yellow'
 
 [status]
 disabled = false
@@ -26,12 +36,6 @@ map_symbol = true
 
 [directory]
 style = "bold blue"
-
-[sudo]
-format = '[$symbol]($style)'
-style = 'bold red'
-symbol = ' '
-disabled = false
 
 [git_branch]
 format = "[$symbol$branch]($style) "
@@ -61,4 +65,3 @@ format = "[$symbol($version )]($style)"
 [golang]
 format = "[$symbol($version )]($style)"
 symbol = " "
-
