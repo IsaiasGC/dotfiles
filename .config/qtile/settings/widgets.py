@@ -11,10 +11,8 @@ def base(fg='text', bg='dark'):
         'background': colors[bg]
     }
 
-
 def separator():
     return widget.Sep(**base(), linewidth=0, padding=5)
-
 
 def icon(fg='text', bg='dark', fontsize=14, text="?"):
     return widget.TextBox(
@@ -24,7 +22,6 @@ def icon(fg='text', bg='dark', fontsize=14, text="?"):
         padding=2
     )
 
-
 def powerline(fg="light", bg="dark"):
     return widget.TextBox(
         **base(fg, bg),
@@ -32,7 +29,6 @@ def powerline(fg="light", bg="dark"):
         fontsize=37,
         padding=-4
     )
-
 
 def workspaces(): 
     return [
@@ -67,7 +63,6 @@ def workspaces():
         widget.WindowName(**base(fg='focus'), fontsize=12, padding=2),
         separator(),
     ]
-
 
 primary_widgets = [
     *workspaces(),
@@ -130,4 +125,5 @@ widget_defaults = {
     'fontsize': 14,
     'padding': 1,
 }
+
 extension_defaults = widget_defaults.copy()
