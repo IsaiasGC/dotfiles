@@ -1,5 +1,8 @@
 acpi
 alacritty
+alsa-utils
+ansible
+ansible-core
 arandr
 base
 base-devel
@@ -25,14 +28,12 @@ geeqie
 git
 grub
 htop
+hwinfo
 kvantum
 libmtp
 libvncserver
 lightdm
-lightdm-web-greeter-theme-arch
-lightdm-webkit-theme-aether
 lightdm-webkit2-greeter
-lightdm-webkit2-theme-reactive
 linux
 linux-firmware
 nano
@@ -57,7 +58,9 @@ pamixer
 pavucontrol
 picom
 playerctl
+postman
 pulseaudio
+pulseaudio-alsa
 pulseaudio-bluetooth
 python-pip
 qbittorrent
@@ -66,7 +69,6 @@ ranger
 remmina
 rofi
 scrot
-simple-mtpfs
 starship
 thunar
 tmux
@@ -76,11 +78,8 @@ udiskie
 unzip
 upower
 vim
-visual-studio-code-bin
 volumeicon
-web-greeter
 xf86-video-vesa
-xob
 xorg-bdftopcf
 xorg-docs
 xorg-font-util
@@ -130,4 +129,3 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xsettingsd
-yay-git
