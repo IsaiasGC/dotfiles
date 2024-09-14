@@ -188,8 +188,39 @@ That's it for Qtile, now you can start hacking on it and make it your own.
 - ## Add support for AUR packages
 
 We need install some tools like `yay` for install packages from github.
+
 ```bash
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 ```
+
+- ## Add support for blackarch packages
+
+```bash
+curl -O https://blackarch.org/strap.sh
+chmod +x strap.sh 
+sudo ./strap.sh 
+sudo pacman -Sy
+```
+
+- ## Get the installed packages list
+
+```bash
+# NORMAL
+pacman -Qqen > aurlist.pkgs
+
+# AUR
+pacman -Qqem > aurlist.pkgs
+```
+
+- ## Config the git commit signing(ssh)
+
+```bash
+git config --global gpg.format ssh
+git config --global user.signingkey /PATH/TO/.SSH/KEY.PUB
+
+# For signing globaly
+git config --global commit.gpgsign true
+```
+
